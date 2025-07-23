@@ -1,0 +1,260 @@
+.master_main{
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    gap: 400px;
+}
+
+.master_title{
+    color: whitesmoke;
+    font-size: 2rem;
+    font-style: oblique;
+}
+
+.master_title:hover{
+    color: blue;
+}
+
+.master_content{
+    width: 100%;
+    margin: auto;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    position: relative;
+    gap: 200px;
+    align-items: center;
+}
+
+
+
+.master_box{
+    display: flex;
+    height: auto;
+    width: 60%;
+    align-items: center;
+     position: relative;
+    gap: 60px;
+    margin: auto;
+}
+
+.master_text{
+    font-weight: 200;
+}
+
+.master_img{
+    border-radius: 20%;
+    width: 15%;
+    
+}
+
+.master_img:hover{
+     border-radius: 20px;
+     transform: scale(2);
+     transition: 0.5s;
+    
+}
+
+.master_list1, .master_list2{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 20px;
+    color: whitesmoke;
+    font-size: 1rem;
+}
+
+.master_content2{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 100px;
+    align-items: center;
+}
+
+.master_price{
+    display: flex;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    margin: auto;
+    justify-content: space-between;
+}
+
+.master_form{
+    width: 100%;
+    margin: auto;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-image: url('../assets/fondform.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.master_logo{
+    border-radius: 50%;
+    width: 20%;
+    margin: auto;
+}
+
+
+
+
+.form-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3); /* Ombre jaune sportive */
+
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #ffd700; /* Jaune sportif */
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #ffd700; /* Jaune sportif */
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #e6c200;
+}
+
+.master_final{
+    width: 100%;
+    height: 150vh;
+}
+.master_final_img{
+    width: 100%;
+    height: 100%;
+}
+
+
+@media (max-width:1400px) {
+    .master_main{
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    gap: 200px;
+}
+
+.master_content2{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 50px;
+    align-items: center;
+}
+
+.master_box{
+    width: 70%;
+    flex-direction: column;
+    border: 3px outset black ;
+    gap: 20px;
+}
+
+.master_img{
+    border-radius: 15%;
+    width: 35%;
+}
+
+.master_text{
+    font-weight: 100;
+    font-size: 1.3REM;
+}
+
+.master_list1, .master_list2{
+    font-weight: 100;
+    font-size: 1rem;
+}
+
+.master_price{
+    display: flex;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    margin: auto;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.master_form{
+    flex-direction: column;
+    height: 150vh;
+}
+
+.master_logo{
+    border-radius: 50%;
+    width: 30%;
+    margin: auto;
+}
+
+.form-container{
+    width: 90%;
+}
+
+.master_final{
+    height: 50vh;
+}
+}

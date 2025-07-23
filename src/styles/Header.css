@@ -1,0 +1,104 @@
+header{
+    z-index: 2;
+    background-color: #000000;
+    color: #FFD700; /* Jaune doré */
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    
+   
+}
+
+.nav_title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #FFD700;
+    text-shadow: 1px 1px 2px rgba(255, 215, 0, 0.5);
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav_link, .nav_link_home, .nav_link_info {
+    color: #FFD700;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+.nav_link_home, .nav_link_info {
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+}
+
+.nav_link:hover, .nav_link_home:hover, .nav_link_info:hover {
+    background-color: #FFD700;
+    color: #000000;
+    transform: translateY(-2px);
+}
+
+/* Effet sportif */
+.nav_title::after {
+    content: "⚽";
+    margin-left: 0.5rem;
+    font-size: 1.4rem;
+}
+
+/* ----------- Media Queries ----------- */
+
+@media (max-width: 767px) {
+    header {
+        flex-direction: column;
+        height: auto;
+        position: relative;
+        gap: 20px;
+    }
+
+    nav{
+        width: 100%;
+        justify-content: space-between;
+        display: flex;
+    }
+
+    .nav_title{
+        font-size: 1.5rem;
+    }
+
+    .nav_link{
+        font-size: 1rem;
+    }
+   
+}
+
+@media (min-width: 767px) and (max-width: 1500px) {
+    header {
+        flex-direction: row;
+        padding: 1rem 2rem;
+        height: 70px;
+        position: fixed;
+    }
+    .nav_title {
+        font-size: 1.5rem;
+    }
+    nav {
+        flex-direction: row;
+        gap: 1rem;
+    }
+    .nav_link, .nav_link_home, .nav_link_info {
+        font-size: 1.1rem;
+        padding: 0.5rem 1rem;
+    }
+}
