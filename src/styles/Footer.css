@@ -1,8 +1,8 @@
 footer {
   width: 100%;
   min-height: 120px;
-  background-color: black;
-  color: whitesmoke;
+  background-color: whitesmoke;
+  color: black;
   align-items: center;
   display: flex;
   justify-content: space-around;
@@ -17,7 +17,7 @@ footer {
 .foot_img{
     width: 10%;
     border-radius: 50%;
-    box-shadow: 0px 0px 5px 5px yellow;
+    box-shadow: 0px 0px 5px 5px black;
 }
 
 .foot_content{
