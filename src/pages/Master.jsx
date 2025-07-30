@@ -48,25 +48,29 @@ export default function Master() {
         {id:8, title: "Abonnement mensuel en salle", prix: 50000 , info: "dans une salle de votre choix d'un commun accord entre votre coach, vous et la salle trouvée"},
     ];
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
-    const formData = Object.fromEntries(new FormData(form));
     
-    fetch(form.action, {
-        method: form.method,
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-    })
-    .then(response => {
+    try {
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+        
         if (response.ok) {
             setFormSubmitted(true);
             form.reset();
+        } else {
+            alert("L'envoi a échoué. Veuillez réessayer.");
         }
-    })
-    .catch(error => console.error('Error:', error));
+    } catch (error) {
+        console.error('Error:', error);
+        alert(`Erreur: ${error.message}`);
+    }
 };
 
     return (
