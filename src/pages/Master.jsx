@@ -49,20 +49,25 @@ export default function Master() {
     ];
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        const form = e.target;
-        fetch(form.action, {
-            method: form.method,
-            body: new FormData(form),
-        })
-        .then(response => {
-            if (response.ok) {
-                setFormSubmitted(true);
-                form.reset();
-            }
-        })
-        .catch(error => console.error('Error:', error));
-    };
+    e.preventDefault();
+    const form = e.target;
+    const formData = Object.fromEntries(new FormData(form));
+    
+    fetch(form.action, {
+        method: form.method,
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => {
+        if (response.ok) {
+            setFormSubmitted(true);
+            form.reset();
+        }
+    })
+    .catch(error => console.error('Error:', error));
+};
 
     return (
         <section className='master_main'> 
