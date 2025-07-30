@@ -113,6 +113,8 @@ export default function Master() {
                         <input type="hidden" name="_template" value="table" />
                         <input type="hidden" name="_captcha" value="false" />
                         <input type="hidden" name="_next" value="/" />
+                        <input type="hidden" name="_autoresponse" value="Merci pour votre message!" />
+                        <input type="hidden" name="_blacklist" value="spamterm, badterm" />
                         
                         <div className="form-group">
                             <label htmlFor="email">Email</label>
