@@ -84,7 +84,7 @@ export default function Master() {
             <div className='master_form'>
                 <img className='master_logo' src={affiche} alt='affiche' /> 
                 <div className="form-container">
-                    <form action="https://formsubmit.co/fr0055970@gmail.com" method="POST">
+                    <form action="https://formsubmit.co/thebeesport13@gmail.com" method="POST">
                         <input type="hidden" name="_subject" value="Nouvelle demande de coaching" />
                         <input type="hidden" name="_template" value="table" />
                         <input type="hidden" name="_captcha" value="false" />
