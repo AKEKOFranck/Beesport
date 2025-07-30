@@ -1,12 +1,15 @@
 import '../styles/Master.css';
-import pic1 from '../assets/C-Samuel.jpg';
-import pic2 from '../assets/C-Daniel.jpg';
-import pic3 from '../assets/C-Martial.jpg';
-import pic4 from '../assets/C-Idris.jpg';
+import pic1 from '../assets/C-Samuel.png';
+import pic2 from '../assets/C-Daniel.png';
+import pic3 from '../assets/C-Martial.png';
+import pic4 from '../assets/C-Idris.png';
 import affiche from '../assets/logo sport.jpg';
 import sportlogo from '../assets/fonfinal.png'
+import { useState } from 'react';
 
 export default function Master() {
+    const [formSubmitted, setFormSubmitted] = useState(false);
+
     const masters = [
         {id:1 , name:"Coach Samuel" , img: pic1 , items:[
             "Bodyattack",
@@ -44,6 +47,22 @@ export default function Master() {
         {id:7, title: "Abonnement unique en salle", prix: 10000 , info: "dans une salle de votre choix d'un commun accord entre votre coach, vous et la salle trouvée"},
         {id:8, title: "Abonnement mensuel en salle", prix: 50000 , info: "dans une salle de votre choix d'un commun accord entre votre coach, vous et la salle trouvée"},
     ];
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        fetch(form.action, {
+            method: form.method,
+            body: new FormData(form),
+        })
+        .then(response => {
+            if (response.ok) {
+                setFormSubmitted(true);
+                form.reset();
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    };
 
     return (
         <section className='master_main'> 
@@ -84,7 +103,12 @@ export default function Master() {
             <div className='master_form'>
                 <img className='master_logo' src={affiche} alt='affiche' /> 
                 <div className="form-container">
-                    <form action="https://formsubmit.co/thebeesport13@gmail.com" method="POST">
+                    {formSubmitted ? (
+                        <div className="success-message">
+                            Merci ! Vos données ont été envoyées avec succès.
+                        </div>
+                    ) : (
+                    <form action="https://formsubmit.co/thebeesport13@gmail.com" method="POST" onSubmit={handleSubmit}>
                         <input type="hidden" name="_subject" value="Nouvelle demande de coaching" />
                         <input type="hidden" name="_template" value="table" />
                         <input type="hidden" name="_captcha" value="false" />
@@ -117,6 +141,7 @@ export default function Master() {
                         </div>
                         <button type="submit">S'inscrire</button>
                     </form>
+                    )}
                 </div>
             </div>
 

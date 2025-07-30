@@ -6,9 +6,9 @@ import post2 from '../assets/S2.jpg';
 import post3 from '../assets/S3.jpg';
 import post4 from '../assets/S4.jpg';
 
-import m1 from '../assets/C-Samuel.jpg';
-import m2 from '../assets/C-Idris.jpg';
-import m3 from '../assets/C-Martial.jpg';
+import m1 from '../assets/C-Samuel.png';
+import m2 from '../assets/C-Idris.png';
+import m3 from '../assets/C-Martial.png';
 
 export default function Home() {
 
