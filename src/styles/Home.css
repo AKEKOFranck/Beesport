@@ -1,6 +1,6 @@
 .home_main{
     width: 100%;
-    min-height: 400vh;
+    height: 500vh;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -127,24 +127,30 @@ h2{
 
 @media (max-width:1400px) {
     .home_main{
-        /* height: 200vh; */
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        
+        height: auto;
         position: relative;
-        gap: 160px;
-        min-height: 100vh;
+        gap: 200px;
+    }
+
+    .home_img{
+        height: 500px;
+    }
+
+    .home_content_img{
+        position: relative;
+        top: 50px;
     }
 
 
     .home_content{
         flex-direction: column;
-        height: 90%;
+        height: 100%;
         width: 100%;
-        
         position: relative;
-        gap: 55px;
+        gap: 90px;
     }
 
     .home_text{

@@ -5,27 +5,29 @@ import pic3 from '../assets/C-Martial.png';
 import pic4 from '../assets/C-Idris.png';
 import affiche from '../assets/logo sport.jpg';
 import sportlogo from '../assets/fonfinal.png';
-import { useState, useEffect } from 'react';
+import emailjs from 'emailjs-com';
+import React, { useRef } from 'react';
 
 export default function Master() {
-    const [formSubmitted, setFormSubmitted] = useState(false);
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [networkStatus, setNetworkStatus] = useState(navigator.onLine);
-    const [formError, setFormError] = useState(null);
+    const form = useRef();
 
-    // Vérification de la connexion réseau
-    useEffect(() => {
-        const handleOnline = () => setNetworkStatus(true);
-        const handleOffline = () => setNetworkStatus(false);
+    const sendEmail = (e) => {
+        e.preventDefault();
 
-        window.addEventListener('online', handleOnline);
-        window.addEventListener('offline', handleOffline);
-
-        return () => {
-            window.removeEventListener('online', handleOnline);
-            window.removeEventListener('offline', handleOffline);
-        };
-    }, []);
+        emailjs.sendForm(
+            'process.env.REACT_APP_EMAILJS_SERVICE_ID',
+            'process.env.REACT_APP_EMAILJS_TEMPLATE_ID',
+            'form.current',
+            'process.env.REACT_APP_EMAILJS_USER_I',
+        )
+        .then(() => {
+            alert('Message envoyé !');
+            form.current.reset(); // Reset du formulaire après envoi
+        }, (error) => {
+            console.error('Erreur:', error);
+            alert('Une erreur est survenue lors de l\'envoi du message');
+        });
+    };
 
     const masters = [
         {
@@ -105,80 +107,6 @@ export default function Master() {
         },
     ];
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setIsSubmitting(true);
-        setFormError(null);
-
-        if (!networkStatus) {
-            setFormError("Pas de connexion Internet. Veuillez vérifier votre réseau.");
-            setIsSubmitting(false);
-            return;
-        }
-
-        const form = e.target;
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 15000); // 15s timeout
-
-        try {
-            // Solution hybride: Essayez d'abord avec FormData, puis fallback JSON si échec
-            let response;
-            let error;
-
-            // Essai 1: Envoi avec FormData (meilleure compatibilité)
-            try {
-                const formData = new FormData(form);
-                response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    signal: controller.signal,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-            } catch (formDataError) {
-                error = formDataError;
-                // Essai 2: Fallback avec JSON
-                const jsonData = Object.fromEntries(new FormData(form));
-                response = await fetch(form.action, {
-                    method: 'POST',
-                    body: JSON.stringify(jsonData),
-                    signal: controller.signal,
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    }
-                });
-            }
-
-            clearTimeout(timeoutId);
-
-            if (!response.ok) {
-                throw new Error(`Erreur HTTP: ${response.status}`);
-            }
-
-            setFormSubmitted(true);
-            form.reset();
-        } catch (error) {
-            console.error("Erreur complète:", error);
-            setFormError(
-                `Échec de l'envoi: ${error.message}\n` +
-                "Veuillez réessayer ou nous contacter directement par téléphone."
-            );
-            
-            // Fallback ultime: Ouvrir le client mail
-            if (error.name === 'TypeError' && error.message.includes('Failed to fetch')) {
-                setFormError(prev => prev + "\n\nNous allons ouvrir votre application de messagerie...");
-                setTimeout(() => {
-                    window.location.href = `mailto:thebeesport13@gmail.com?subject=Demande de coaching&body=Bonjour, je souhaite m'inscrire au coaching.`;
-                }, 2000);
-            }
-        } finally {
-            setIsSubmitting(false);
-            clearTimeout(timeoutId);
-        }
-    };
-
     return (
         <section className='master_main'>
             <h1 className='master_title'>Bienvenue sur la page des coachs sportifs !</h1>
@@ -190,7 +118,7 @@ export default function Master() {
                             className='master_img' 
                             src={master.img} 
                             alt={master.name} 
-                            loading="lazy" // Optimisation pour mobile
+                            loading="lazy"
                         />
                         <h3 className='master_text'>{master.name}</h3>
                         <ul className='master_list1'>
@@ -228,105 +156,73 @@ export default function Master() {
                     loading="lazy"
                 />
                 <div className="form-container">
-                    {formSubmitted ? (
-                        <div className="success-message">
-                            <h3>Merci !</h3>
-                            <p>Vos données ont été envoyées avec succès.</p>
-                            <p>Nous vous contacterons dans les plus brefs délais.</p>
+                    <form onSubmit={sendEmail} ref={form}>
+                        <div className="form-group">
+                            <label htmlFor="email">Email</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                required 
+                                inputMode="email"
+                                autoComplete="email"
+                            />
                         </div>
-                    ) : (
-                        <>
-                            {formError && (
-                                <div className="error-message">
-                                    <p>{formError.split('\n').map((line, i) => (
-                                        <span key={i}>{line}<br/></span>
-                                    ))}</p>
-                                </div>
-                            )}
-                            <form 
-                                action="https://formsubmit.co/thebeesport13@gmail.com" 
-                                method="POST" 
-                                onSubmit={handleSubmit}
-                            >
-                                <input type="hidden" name="_subject" value="Nouvelle demande de coaching" />
-                                <input type="hidden" name="_template" value="table" />
-                                <input type="hidden" name="_captcha" value="false" />
-                                <input type="hidden" name="_next" value="/" />
-                                <input type="hidden" name="_autoresponse" value="Merci pour votre message!" />
-                                <input type="hidden" name="_blacklist" value="spamterm, badterm" />
-                                
-                                <div className="form-group">
-                                    <label htmlFor="email">Email</label>
-                                    <input 
-                                        type="email" 
-                                        id="email" 
-                                        name="email" 
-                                        required 
-                                        inputMode="email"
-                                        autoComplete="email"
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="nom">Nom</label>
-                                    <input 
-                                        type="text" 
-                                        id="nom" 
-                                        name="nom" 
-                                        required 
-                                        autoComplete="family-name"
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="prenom">Prénom</label>
-                                    <input 
-                                        type="text" 
-                                        id="prenom" 
-                                        name="prenom" 
-                                        required 
-                                        autoComplete="given-name"
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="telephone">Téléphone</label>
-                                    <input 
-                                        type="tel" 
-                                        id="telephone" 
-                                        name="telephone" 
-                                        required 
-                                        inputMode="tel"
-                                        autoComplete="tel"
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="coach">Coach</label>
-                                    <select id="coach" name="coach" required>
-                                        <option value="">-- Sélectionnez --</option>
-                                        {masters.map(master => (
-                                            <option key={master.id} value={master.name}>
-                                                {master.name}
-                                            </option>
-                                        ))}
-                                    </select>
-                                </div>
-                                <button 
-                                    type="submit" 
-                                    disabled={isSubmitting}
-                                    aria-busy={isSubmitting}
-                                >
-                                    {isSubmitting ? (
-                                        <span>Envoi en cours...</span>
-                                    ) : (
-                                        <span>S'inscrire</span>
-                                    )}
-                                </button>
-                                {!networkStatus && (
-                                    <p className="network-warning">
-                                        ⚠ Vous semblez hors ligne. La soumission nécessite une connexion Internet.
-                                    </p>
-                                )}
-                            </form>
-                        </>
-                    )}
+                        <div className="form-group">
+                            <label htmlFor="nom">Nom</label>
+                            <input 
+                                type="text" 
+                                id="nom" 
+                                name="nom" 
+                                required 
+                                autoComplete="family-name"
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="prenom">Prénom</label>
+                            <input 
+                                type="text" 
+                                id="prenom" 
+                                name="prenom" 
+                                required 
+                                autoComplete="given-name"
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="telephone">Téléphone</label>
+                            <input 
+                                type="tel" 
+                                id="telephone" 
+                                name="telephone" 
+                                required 
+                                inputMode="tel"
+                                autoComplete="tel"
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="coach">Coach</label>
+                            <select id="coach" name="coach" required>
+                                <option value="">-- Sélectionnez --</option>
+                                {masters.map(master => (
+                                    <option key={master.id} value={master.name}>
+                                        {master.name}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="tarif">Tarifs</label>
+                            <select id="tarif" name="tarif" required>
+                                <option value="">-- Sélectionnez --</option>
+                                {prices.map(price => (
+                                    <option key={price.id} value={`${price.title} - ${price.prix} fcfa`}>
+                                        {price.title} - {price.prix.toLocaleString()} fcfa
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                        <button type="submit">Envoyer</button>
+                    </form>
                 </div>
             </div>
 

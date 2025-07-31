@@ -1,17 +1,13 @@
 footer {
   width: 100%;
-  min-height: 120px;
+  height: auto;
   background-color: whitesmoke;
   color: black;
   align-items: center;
   display: flex;
   justify-content: space-around;
   position: relative;
-  bottom: 0;
-  left: 0;
-  box-sizing: border-box;
-  flex-shrink: 0;
-  z-index: 10;
+ 
 }
 
 .foot_img{
@@ -43,10 +39,9 @@ footer {
     font-size: 1.5rem;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1400px) {
   footer {
     flex-direction: column;
-    min-height: 180px;
     height: auto;
     gap: 30px;
     align-items: center;

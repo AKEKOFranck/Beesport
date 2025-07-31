@@ -186,15 +186,14 @@ button:hover {
 @media (max-width:1400px) {
     .master_main{
     width: 100%;
-    height: auto;
     position: relative;
-    top: 70px;
+    top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     position: relative;
-    gap: 200px;
+    gap: 100px;
 }
 
 .master_content2{
