@@ -11,23 +11,33 @@ import React, { useRef } from 'react';
 export default function Master() {
     const form = useRef();
 
-    const sendEmail = (e) => {
-        e.preventDefault();
+    const sendEmail = async (e) => {
+  e.preventDefault();
+  const submitBtn = e.target.querySelector('button[type="submit"]');
+  
+  try {
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Envoi...';
 
-        emailjs.sendForm(
-            'process.env.REACT_APP_EMAILJS_SERVICE_ID',
-            'process.env.REACT_APP_EMAILJS_TEMPLATE_ID',
-            'form.current',
-            'process.env.REACT_APP_EMAILJS_USER_I',
-        )
-        .then(() => {
-            alert('Message envoyé !');
-            form.current.reset(); // Reset du formulaire après envoi
-        }, (error) => {
-            console.error('Erreur:', error);
-            alert('Une erreur est survenue lors de l\'envoi du message');
-        });
-    };
+    const response = await emailjs.sendForm(
+      'service_oda78gr',
+      'template_d7nlwwa',
+      form.current,
+      'N38ID-rh2GFZxvp98'
+    );
+
+    if (response.status === 200) {
+      form.current.reset();
+      alert('Message envoyé avec succès !');
+    }
+  } catch (err) {
+    console.error('Erreur mobile:', err);
+    alert(`Échec d'envoi: ${err.message || 'Réseau instable'}`);
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Envoyer';
+  }
+};
 
     const masters = [
         {
