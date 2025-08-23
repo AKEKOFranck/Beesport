@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Optionnel : indiquez l'emplacement de votre sitemap
+Sitemap: https://www.votresite.com/sitemap.xml
