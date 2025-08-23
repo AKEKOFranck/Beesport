@@ -1,5 +1,4 @@
 User-agent: *
-Allow: /
+Disallow:
 
-# Optionnel : indiquez l'emplacement de votre sitemap
-Sitemap: https://www.votresite.com/sitemap.xml
+Sitemap: https://thebeesport.vercel.app/
