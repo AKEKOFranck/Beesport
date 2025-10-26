@@ -1,83 +1,138 @@
 header{
-    z-index: 2;
-    background-color: #000000;
-    color: #FFD700; /* Jaune doré */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
     width: 100%;
-    height: 70px;
-    
+    height: 90px;
+    background-color: #000;
+    align-items: center;
+    display:flex ;
+    justify-content: space-around;
+    position: fixed;
+    z-index: 1;
+}
+
+.head_title{
+    color: aliceblue;
+    transition: all 0.5s ease-in-out;
+}
+
+.head_title:hover{
+    color: yellow;
+    transform: translateY(-10px);
+}
+.nav_link{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.5s ease-in-out;
+}
+
+.nav_link:hover{
+    transform: translateY(-10px);
+    text-shadow: 1px 1px yellow;
+}
+
+.nav_ico, .nav_title{
+    color: whitesmoke;
+}
+
+.nav_ico{
+    font-size: 1.3rem;
+     transition: all 0.5s ease-in-out;
+}
+
+.nav_ico:hover{
+     color: yellow;
    
 }
 
-.nav_title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #FFD700;
-    text-shadow: 1px 1px 2px rgba(255, 215, 0, 0.5);
-    margin: 0;
-}
-
-nav {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-}
-
-.nav_link, .nav_link_home, .nav_link_info {
-    color: #FFD700;
-    text-decoration: none;
-    font-weight: 400;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-}
-
-.nav_link_home, .nav_link_info {
-    font-size: 1.4rem;
-    display: flex;
-    align-items: center;
-}
-
-.nav_link:hover, .nav_link_home:hover, .nav_link_info:hover {
-    background-color: #FFD700;
-    color: #000000;
-    transform: translateY(-2px);
-}
-
-/* Effet sportif */
-.nav_title::after {
-    content: "⚽";
-    margin-left: 0.5rem;
-    font-size: 1.4rem;
+.nav_title{
+    font-weight: 300;
 }
 
 
-@media (max-width: 1400px) {
-    header {
-        flex-direction: column;
-        height: auto;
-        position: fixed;
-        gap: 20px;
-    }
 
-    nav{
-        width: 100%;
-        justify-content: space-between;
-        display: flex;
-    }
 
-    .nav_title{
-        font-size: 1.5rem;
-    }
 
-    .nav_link{
-        font-size: 1rem;
-    }
-   
+@media (max-width:767px) {
+header{
+    justify-content: space-evenly;
+}
+.head_title{
+    font-size: 16px;
+    border: 2px  inset  black;
+}
+}
+
+
+
+@media (min-width:767px) and  (max-width:1400px) {
+header{
+    justify-content: space-evenly;
+}
+.nav_ico{
+    font-size: 1.5rem;
+}
+.nav_title{
+    font-size: 1.2rem;
+}
+.head_title{
+    font-size: 1.3rem;
+    border: 2px  inset  black;
+}
+}
+
+
+@media (min-width:768px) and  (max-width:1400px) {
+
+ header{
+    justify-content: space-evenly;
+}
+.nav_ico{
+    font-size: 1.5rem;
+}
+.nav_title{
+    font-size: 1.2rem;
+}
+.head_title{
+    font-size: 1.3rem;
+    border: 2px  inset  black;
+}
+}
+
+
+
+
+@media (min-width:820px) and  (max-width:1400px) {
+ header{
+    justify-content: space-evenly;
+}
+.nav_ico{
+    font-size: 1.5rem;
+}
+.nav_title{
+    font-size: 1.2rem;
+}
+.head_title{
+    font-size: 1.3rem;
+    border: 2px  inset  black;
+}
+
+}
+
+
+@media (min-width:1280px) and  (max-width:1500px) {
+ header{
+    justify-content: space-evenly;
+    height: 150px;
+}
+.nav_ico{
+    font-size: 2rem;
+}
+.nav_title{
+    font-size: 2rem;
+}
+.head_title{
+    font-size: 2rem;
+    border: 2px  inset  black;
+}
 }

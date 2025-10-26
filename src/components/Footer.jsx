@@ -1,9 +1,8 @@
 import '../styles/Footer.css';
 import { Link } from 'react-router-dom';
-import { FaInstagram } from "react-icons/fa";
-import { SiTiktok } from "react-icons/si";
-import { FaFacebookSquare } from "react-icons/fa";
-import logo from '../assets/logo sport.jpg';
+import { IoIosMail } from "react-icons/io";
+import { FaHeadset } from "react-icons/fa6";
+import { MdDownloadForOffline } from "react-icons/md";
 
 
 
@@ -18,25 +17,36 @@ export default function Footer() {
             "7/7jours",
         ];
 
+    const info = [
+        {
+            id:1,
+            icon: <IoIosMail className='foot_ico' /> ,
+            title: "GMAIL",
+            link : "mailto:thebeesport13@gmail.com" ,
+        },
+         {
+            id:2,
+            icon: <FaHeadset className='foot_ico' /> ,
+            title: "Service 7j/7",
+            link :"tel:+2250584474523" ,
+        },
+         {
+            id:3,
+            icon:  <MdDownloadForOffline className='foot_ico' /> ,
+            title: "Télécharger",
+            link : "/InstallBT" ,
+        }
+    ]
+
     
     return(
         <footer>
-           <div className='fot_content'>
-            <h3 className='foot_title'>Info</h3>
-            <h5 className='foot_text'>
-               <ul className='foot_list1'>
-                {infoData.map((item, idx) => (
-                     <li className='foot_list2' key={idx}>{item}</li>
-                ))}
-               </ul>
-            </h5>
-           </div>
-
-           
-            <img className='foot_img' src={logo} alt='poste'></img>
-        
-
-           
+            {info.map((data) =>(
+                 <a href={data.link} className='foot_box' key={data}>
+                    {data.icon}
+                   <h5 className='foot_title'> {data.title} </h5>
+                </a>
+            ))}
         </footer>
     )
 }

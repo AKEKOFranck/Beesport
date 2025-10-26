@@ -1,14 +1,53 @@
-*{
-  padding: 0;
+/* Reset et styles globaux de base */
+*,
+*::before,
+*::after {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  list-style: none;
   text-decoration: none;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-body{
-  background-color: black;
+html {
+  scroll-behavior: smooth;
 }
 
+body {
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+   text-decoration: none;
+    background-color: black; 
+}
+
+
+/* Styles de base pour les éléments HTML */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  border: none;
+  outline: none;
+}
 

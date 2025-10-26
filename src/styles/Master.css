@@ -1,94 +1,214 @@
 .master_main{
     width: 100%;
     height: auto;
-    position: relative;
-    top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 300px;
+}
+
+.master_container{
+    width: 100%;
+    height: 100vh;
+}
+
+#card{
+    height: 55vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
     text-align: center;
-    position: relative;
-    gap: 400px;
-}
-
-.master_title{
-    color: whitesmoke;
-    font-size: 2rem;
-    font-style: oblique;
-}
-
-.master_title:hover{
-    color: blue;
-}
-
-.master_content{
-    width: 100%;
-    margin: auto;
-    height: auto;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    position: relative;
-    gap: 200px;
-    align-items: center;
 }
 
 
-
-.master_box{
-    display: flex;
-    height: auto;
-    width: 60%;
-    align-items: center;
-     position: relative;
-    gap: 60px;
-    margin: auto;
+.master_first {
+  border: 2px inset aliceblue;
+  width: 250px;
+  height: auto;
+  padding: 40px;
+  background: linear-gradient(145deg, #000000, #1a1a1a);
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  text-align: center;
+  transition: all 0.4s ease;
+  animation: fadeIn 1.2s ease forwards;
 }
 
-.master_text{
-    font-weight: 200;
+.master_first:hover {
+  transform: scale(1.08) rotate(1deg);
+  box-shadow: 0 0 35px rgba(255, 255, 0, 0.8),
+              0 0 60px rgba(255, 255, 0, 0.3);
 }
 
-.master_img{
-    border-radius: 20%;
-    width: 15%;
-    
+.master_ico {
+  color: aliceblue;
+  font-size: 5rem;
+  animation: bounce 2s infinite;
 }
 
-.master_img:hover{
-     border-radius: 20px;
-     transform: scale(2);
-     transition: 0.5s;
-    
+.master_title {
+  color: yellow;
+  font-style: italic;
+  margin-top: 10px;
+  text-shadow: 0 0 10px yellow, 0 0 25px orange;
 }
 
-.master_list1, .master_list2{
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    gap: 20px;
-    color: whitesmoke;
-    font-size: 1rem;
+.master_link {
+  border: 2px solid yellow;
+  background-color: black;
+  color: yellow;
+  padding: 10px 30px;
+  position: relative;
+  top: 30px;
+  border-radius: 10px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.master_content2{
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    gap: 100px;
-    align-items: center;
+.master_link:hover {
+  background-color: yellow;
+  color: black;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px yellow;
 }
 
-.master_price{
-    display: flex;
-    width: 100%;
-    height: auto;
-    align-items: center;
-    margin: auto;
-    justify-content: space-between;
+/* ⚡ Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+
+
+
+
+
+#masters{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  height: auto;
+}
+
+
+.master_card_container{
+   display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 400px;
+  width: 80%;
+
+}
+
+.master_card_cont{
+  width: 50%;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.master_card {
+  border: 2px inset aliceblue;
+  width: 250px;
+  height: auto;
+  padding: 40px;
+  background: linear-gradient(145deg, #000000, #1a1a1a);
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  text-align: center;
+  transition: all 0.4s ease;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+.master_card:hover {
+  transform: scale(1.08) rotate(1deg);
+  box-shadow: 0 0 35px rgba(255, 255, 0, 0.8),
+              0 0 60px rgba(255, 255, 0, 0.3);
+}
+
+
+
+.master_card_info {
+  border: 2px inset aliceblue;
+  width: 250px;
+  height: auto;
+  padding: 40px;
+  background: linear-gradient(145deg, #000000, red);
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  text-align: center;
+  transition: all 0.4s ease;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+ul li{
+  color: whitesmoke;
+  font-weight: 600;
+  font-style: oblique;
+}
+
+
+
+#prices{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: auto;
+}
+
+.master_prices_container{
+  display: flex;
+  width: 100%;
+  height: auto;
+  justify-content: space-around;
+  border: 3px solid ;
+  flex-direction: row;
+  
+}
+
+.master_prices_cont{
+  border: 2px inset red;
+  width: 30%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around ;
+   padding: 40px;
+  background: linear-gradient(145deg, #000000, #1a1a1a);
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  text-align: center;
+  transition: all 0.4s ease;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+.master_prices_cont:hover {
+  transform: scale(1.08) rotate(1deg);
+  box-shadow: 0 0 35px rgba(255, 255, 0, 0.8),
+              0 0 60px rgba(255, 255, 0, 0.3);
+}
+
+
+
+#form{
+  width: 100%;
+  height: auto;
+  background-color: aliceblue;
+}
+
+
+
 
 .master_form{
     width: 100%;
@@ -173,87 +293,256 @@ button:hover {
     background-color: #e6c200;
 }
 
-.master_final{
-    width: 100%;
-    height: 150vh;
+
+
+
+
+
+
+@media (max-width:767px) {
+.master_main{
+  gap: 200px;
 }
-.master_final_img{
-    width: 100%;
-    height: 100%;
+
+#card{
+  flex-direction: column;
+  align-items: center;
+  height: 90vh;
+  justify-content: space-evenly;
+}
+
+.master_first{
+  top: 100px;
+  position: relative;
+}
+
+#masters{
+  position: relative;
+  gap: 100px;
+}
+
+.master_card_container{
+  flex-direction: column;
+  height: auto;
+  align-items: flex-start;
+  position: relative;
+  gap: 100px;
+  width: 100%;
+}
+
+.master_card_cont{
+width: 100%;
+height: auto;
+flex-direction: column;
+}
+
+#prices{
+  flex-direction: column;
 }
 
 
-@media (max-width:1400px) {
-    .master_main{
-    width: 100%;
-    position: relative;
-    top: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    gap: 100px;
+.master_prices_cont{
+  width: 100%;
 }
 
-.master_content2{
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    gap: 50px;
-    align-items: center;
 }
 
-.master_box{
-    width: 70%;
-    flex-direction: column;
-    border: 3px outset black ;
-    gap: 20px;
+
+
+@media (min-width:767px) and  (max-width:1400px) {
+.master_main{
+  gap: 200px;
 }
 
-.master_img{
-    border-radius: 15%;
-    width: 35%;
+#card{
+  flex-direction: column;
+  align-items: center;
+  height: 90vh;
+  justify-content: space-evenly;
 }
 
-.master_text{
-    font-weight: 100;
-    font-size: 1.3REM;
+.master_first{
+  top: 100px;
+  position: relative;
 }
 
-.master_list1, .master_list2{
-    font-weight: 100;
-    font-size: 1rem;
+#masters{
+  position: relative;
+  gap: 100px;
 }
 
-.master_price{
-    display: flex;
-    width: 100%;
-    height: auto;
-    align-items: center;
-    margin: auto;
-    flex-direction: column;
-    justify-content: space-between;
+.master_card_container{
+  flex-direction: column;
+  height: auto;
+  align-items: flex-start;
+  position: relative;
+  gap: 100px;
+  width: 100%;
 }
 
-.master_form{
-    flex-direction: column;
-    height: 150vh;
+.master_card_cont{
+width: 100%;
+height: auto;
+flex-direction: column;
 }
 
-.master_logo{
-    border-radius: 50%;
-    width: 30%;
-    margin: auto;
+#prices{
+  flex-direction: column;
 }
 
-.form-container{
-    width: 90%;
+
+.master_prices_cont{
+  width: 100%;
+}
 }
 
-.master_final{
-    height: 50vh;
+
+@media (min-width:768px) and  (max-width:1400px) {
+.master_main{
+  gap: 200px;
 }
+
+#card{
+  flex-direction: row;
+  align-items: center;
+  height: 40vh;
+  justify-content: space-evenly;
+}
+
+.master_first{
+  top: 100px;
+  position: relative;
+}
+
+#masters{
+  position: relative;
+  gap: 100px;
+}
+
+.master_card_container{
+  flex-direction: row;
+  height: auto;
+  align-items: flex-start;
+  position: relative;
+  gap: 100px;
+  width: 100%;
+}
+
+.master_card_cont{
+width: 100%;
+height: auto;
+flex-direction: column;
+}
+
+#prices{
+  flex-direction: column;
+}
+
+
+.master_prices_cont{
+  width: 100%;
+}
+}
+
+
+
+
+@media (min-width:820px) and  (max-width:1400px) { 
+  .master_main{
+  gap: 200px;
+}
+
+#card{
+  flex-direction: row;
+  align-items: center;
+  height: 40vh;
+  justify-content: space-evenly;
+}
+
+.master_first{
+  top: 100px;
+  position: relative;
+}
+
+#masters{
+  position: relative;
+  gap: 100px;
+}
+
+.master_card_container{
+  flex-direction: row;
+  height: auto;
+  align-items: flex-start;
+  position: relative;
+  gap: 100px;
+  width: 100%;
+}
+
+.master_card_cont{
+width: 100%;
+height: auto;
+flex-direction: column;
+}
+
+#prices{
+  flex-direction: column;
+}
+
+
+.master_prices_cont{
+  width: 100%;
+}
+}
+
+
+
+
+
+
+@media (min-width:1280px) and  (max-width:1500px) {
+  .master_main{
+  gap: 200px;
+}
+
+#card{
+  flex-direction: row;
+  align-items: center;
+  height: 80vh;
+  justify-content: space-evenly;
+}
+
+.master_first{
+  top: 100px;
+  position: relative;
+}
+
+#masters{
+  position: relative;
+  gap: 100px;
+}
+
+.master_card_container{
+  flex-direction: row;
+  height: auto;
+  align-items: center;
+  position: relative;
+  gap: 100px;
+  width: 100%;
+}
+
+.master_card_cont{
+width: 100%;
+height: auto;
+flex-direction: column;
+}
+
+#prices{
+  flex-direction: row;
+}
+
+
+.master_prices_cont{
+  width: 100%;
+}
+
 }

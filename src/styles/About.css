@@ -1,0 +1,193 @@
+.about_main{
+    width: 100%;
+    height: 150vh;
+    background-color: red;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 50px;
+}
+
+.about_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  background-color: black;
+  width: 22%; /* ✅ Plus petit qu’avant (était 30%) */
+  max-width: 300px; /* ✅ Taille maximale */
+  min-width: 220px; /* ✅ Évite que ce soit trop petit sur mobile */
+  padding: 20px; /* ✅ Réduit le padding interne */
+  border-radius: 12px;
+  box-shadow: 0 4px 20px blueviolet;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  overflow: hidden;
+  word-wrap: break-word;
+  height: auto; /* ✅ Laisse la hauteur s’ajuster automatiquement */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* ✅ Animation douce */
+}
+
+.about_container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px blueviolet;
+}
+
+.about_title {
+  color: yellow;
+  font-weight: 600;
+  font-style: oblique;
+  border-bottom: 1px dashed;
+  font-size: 1.1rem; /* ✅ Réduction du texte */
+  margin-bottom: 10px;
+}
+
+.about_text {
+  color: aliceblue;
+  font-weight: 400;
+  width: 100%;
+  line-height: 1.4;
+  font-size: 0.9rem; /* ✅ Texte plus compact */
+  white-space: normal;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:767px) {
+.about_main{
+    flex-direction: column;
+    height: 350vh;
+    gap: 100px;
+}
+
+.about_container{
+  width: 100%;
+  position: relative;
+  top: 80px;
+  max-width: 90%;
+}
+}
+
+
+
+@media (min-width:767px) and  (max-width:1400px) {
+.about_main{
+    flex-direction: column;
+    height: 350vh;
+    gap: 100px;
+}
+
+.about_container{
+  width: 100%;
+  position: relative;
+  top: 80px;
+}
+}
+
+
+@media (min-width:768px) and  (max-width:1400px) {
+.about_main{
+    flex-direction: column;
+    height: 300vh;
+    gap: 100px;
+}
+
+.about_container{
+  width: 100%;
+  position: relative;
+  top: 10px;
+  max-width: 80%;
+}
+
+
+.about_title{
+  font-size: 1.5rem;
+}
+
+.about_text{
+  font-size: 1.5rem;
+}
+}
+
+
+
+
+@media (min-width:820px) and  (max-width:1400px) { 
+.about_main{
+    flex-direction: column;
+    height: 300vh;
+    gap: 100px;
+}
+
+.about_container{
+  width: 100%;
+  position: relative;
+  top: 10px;
+  max-width: 80%;
+}
+
+
+.about_title{
+  font-size: 1.5rem;
+}
+
+.about_text{
+  font-size: 1.5rem;
+}
+}
+
+
+
+
+
+
+@media (min-width:1280px) and  (max-width:1500px) {
+.about_main{
+    flex-direction: column;
+    height: 300vh;
+    gap: 100px;
+}
+
+.about_container{
+  width: 100%;
+  position: relative;
+  top: 10px;
+  max-width: 80%;
+}
+
+
+.about_title{
+  font-size: 1.5rem;
+}
+
+.about_text{
+  font-size: 1.5rem;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

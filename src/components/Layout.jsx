@@ -4,9 +4,9 @@ import Footer from '../components/Footer';
 
 export default function Layout() {
   return (
-    <div className="layout">
+    <div className="app">
       <Header />
-      <main className="layout-content">
+      <main >
         <Outlet />
       </main>
       <Footer />
