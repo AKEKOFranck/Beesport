@@ -101,6 +101,15 @@ export default function InstallBT() {
                 <div className="bt_info">
                     <p>L'installation sera proposée automatiquement par votre navigateur.</p>
                     <p className="small-text">Navigateurs supportés : Chrome, Edge sur Android et desktop</p>
+                    <p>Pour installer l'application sur iOS :</p>
+                    <ol>
+                        <li>Ouvrir le menu de partage (icône 📤)</li>
+                        <li>Faire défiler vers le bas</li>
+                        <li>Choisir <strong>"Ajouter à l'écran d'accueil"</strong></li>
+                    </ol>
+                    <button className="bt_ios_instruction" onClick={handleInstallClick}>
+                        Afficher les instructions détaillées
+                    </button>
                 </div>
             )}
         </section>

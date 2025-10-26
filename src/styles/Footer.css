@@ -44,3 +44,16 @@ footer{
     color: black;
     font-style: oblique;
 }
+
+@media (min-width: 300px) and (max-width:1500px) {
+    footer{
+        flex-direction: column;
+        height: 60vh;
+
+    }
+
+    .foot_box{
+        width: 40%;
+        height: auto;
+    }
+}
