@@ -25,7 +25,7 @@ export default function Header() {
             id:4,
             icon: <FaCircleInfo className='nav_ico' /> ,
             title: "Infos",
-            link:"/",
+            link:"/About",
         },
     ]
     return(
