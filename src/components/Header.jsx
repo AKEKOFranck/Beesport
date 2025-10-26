@@ -12,7 +12,7 @@ export default function Header() {
         {
             id:1,
             icon: <IoIosHome className='nav_ico' /> ,
-            title: "Accuiel",
+            title: "Accueil",
             link:"/",
         },
          {
