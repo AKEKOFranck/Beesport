@@ -94,7 +94,6 @@ export default function InstallBT() {
                         <li>Choisir <strong>"Ajouter à l'écran d'accueil"</strong></li>
                     </ol>
                     <button className="bt_ios_instruction" onClick={handleInstallClick}>
-                        Afficher les instructions détaillées
                     </button>
                 </div>
             ) : (
@@ -108,7 +107,6 @@ export default function InstallBT() {
                         <li>Choisir <strong>"Ajouter à l'écran d'accueil"</strong></li>
                     </ol>
                     <button className="bt_ios_instruction" onClick={handleInstallClick}>
-                        Afficher les instructions détaillées
                     </button>
                 </div>
             )}
